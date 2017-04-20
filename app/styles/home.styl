@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+@import "memeshare"
+
+*
+  margin 0
+  padding 0
+  box-sizing border-box
+
+html, body
+  height 100%
+  font 100% Arial, Hervetica, sans-serif
+
+
+h1, h2, h3, h4, h5, h6, .logo
+  font-family Comfortaa, Arial, sans-serif
+
+.logo{
+  color #777
+  text-decoration none
+  font-size 1.618rem
+
+  span{
+    color $color
+  }
+}
+
+.meme-inline{
+  meme-card inline 4 0.5%
+}
+
+.meme{
+  meme-card block
+}
+
+.other-memes{
+  .meme-inline{
+    transition all .25s ease
+  }
+
+  &:hover{
+    .meme-inline{
+      opacity .25
+
+      &:hover{
+        opacity 1
+        transform scale(1.0809)
+        z-index 100
+        box-shadow 0 8px 8px rgba(#000, .25)
+      }
+    }
+  }
+}
+
+.btn{
+  display inline-block
+  padding .5em 1em
+  text-decoration none
+  text-transform uppercase
+  color rgba(#000, 82%)
+  background #FFF
+  cursor pointer
+
+  &.register{
+    background $color
+    color rgba(#FFF, 82%)
+  }
+}
+
+.home-header{
+  display flex
+  flex-direction row
+  align-items middle
+  position absolute
+  top 0
+  left 0
+  width 100%
+  z-index 9999
+  padding 1em
+  background #FFF
+
+  .logo{
+    flex auto
+  }
+
+  .buttons{
+    flex 1
+    text-align right
+  }
+}

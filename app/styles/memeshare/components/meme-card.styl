@@ -1,0 +1,62 @@
+$meme-card {
+  position relative
+  overflow hidden
+  color #FFF
+
+  .image{
+    display block
+    width 100%
+    background #000 no-repeat center
+    background-size cover
+    height 0
+  }
+
+  .info-bar{
+    display flex
+    flex-direction row
+    bottom 0
+    left 0
+    width 100%
+    background $color
+    align-items center
+  }
+
+  a, .stars{
+    flex 1
+    padding .5em
+  }
+
+  a{
+    color #fff
+    text-decoration: none
+  }
+
+  .stars {
+    flex 0 auto
+    float right
+    word-wrap no-wrap
+  }
+}
+
+meme-card($style=block, $n=5, $space=0%, $aspect=(9 / 16)){
+  $width  = $style == inline ? 100% / $n : 100%
+  $width -= $space * 2
+
+  @extend $meme-card
+  display block
+  width $width
+  margin $space
+
+  .image{
+    padding-bottom 100% * $aspect
+  }
+
+  if $style == inline {
+    float left
+    clearfix()
+
+    .stars .m-icon{
+      font-size .8em
+    }
+  }
+}

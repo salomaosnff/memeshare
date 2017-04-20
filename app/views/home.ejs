@@ -1,0 +1,57 @@
+<% function stars(n) {
+    n = Math.max(n, 0);
+    n = Math.min(n, 5);
+
+    let str = "";
+
+    for(let i = 0; i < 5; i++){
+
+        str += (n <= 0) ?
+                '<span class="m-icon">star_border</span>' :
+                '<span class="m-icon">star</span>';
+
+        if(n > 0) n--;
+    }
+
+    return str;
+}%>
+<section id="home">
+    <header class="home-header">
+        <a href="/" class="logo">Meme<span>Share</span></a>
+        <div class="buttons">
+            <a href="/login" class="btn login">Entrar</a>
+            <a href="/cadastro" class="btn register">Cadastre-se</a>
+        </div>
+    </header>
+    <section class="content">
+        <section class="destaques">
+            <section class="meme">
+                <div class="image" style="background-image: url('http://lorempixel.com/1280/720');"></div>
+                <div class="info-bar">
+                    <a href="/@user/meme/5as4d165a1sd">Lorem ipsum dolor sit amet.</a>
+                    <p class="stars"><%- stars(3)%></p>
+                </div>
+            </section>
+            <section class="other-memes">
+                <h1>Mais avaliados</h1>
+                <ul>
+                    <% for(let i=0; i < 10; i++) { %>
+                        <li class="meme-inline">
+                            <div class="image" style="background-image: url('http://lorempixel.com/1280/720');"></div>
+                            <div class="info-bar">
+                                <a href="/@user/meme/5as4d165a1sd">Lorem ipsum dolor sit amet.</a>
+                                <p class="stars"><%- stars(Math.round(Math.random()* 5))%></p>
+                            </div>
+                        </li>
+                    <% } %>
+                </ul>
+            </section>
+        </section>
+    </section>
+    <section class="forms">
+
+    </section>
+    <footer class="home-footer">
+        <p><%=appName%>&copy; <%=(new Date()).getFullYear()%></p>
+    </footer>
+</section>

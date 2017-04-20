@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="<%=lang%>">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title%></title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Metas --><%
+    for(let name in meta){
+        if(typeof meta[name] == "string"){ %>
+        <meta name="<%=name%>" content="<%=meta[name]%>">
+    <%  } else if(typeof meta[name] == "object"){ %>
+    <meta <% for(let attr in meta[name]){ %><%-attr+'="'+meta[name][attr]+'" '%><%} %>><%
+        }
+    }
+    %>
+    <!-- Links --><%
+    for(let i in link){ %>
+    <link <% for(let attr in link[i]){ %><%- attr+'="'+link[i][attr]+'" '%><% }%>/><%
+    } %>
+    <!-- Styles --><%
+    for(let i in css){ %>
+    <link rel="stylesheet" href="<%= css[i]%>"/><%
+    } %>
+    <!-- Scripts --><%
+    for(let i in js){ %>
+    <script src="<%=js[i]%>"></script><%
+    } %>
+</head>
+<body>
+<%- include(__view__) %>
+<!-- Footer Scripts --><%
+for(let i in fjs){ %>
+<script src="<%=fjs[i]%>"></script><%
+} %>
+</body>
+</html>
